@@ -1,0 +1,25 @@
+CREATE USER Punith WITH PASSWORD 'qwerty';
+Create database Events_Organised;
+GRANT CONNECT ON DATABASE Events_Organised TO Punith;
+GRANT USAGE ON SCHEMA public TO Punith;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO Punith;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public 
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO Punith;
+
+
+
+
+CREATE TABLE EventsOrganized (
+    id VARCHAR PRIMARY KEY
+);
+
+CREATE TABLE "Event" (
+    "eventID" SERIAL PRIMARY KEY,
+    "eventTitle" VARCHAR(100) NOT NULL,
+    "eventType" VARCHAR(50) NOT NULL,
+    "startDate" DATE NOT NULL,
+    "endDate" DATE NOT NULL,
+    "location" VARCHAR(100) NOT NULL,
+    "approval" BOOLEAN DEFAULT NULL,
+    "faculty" VARCHAR(255)
+);
